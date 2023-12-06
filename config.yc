@@ -1,0 +1,6 @@
+
+"/driver/iref" : "290.0" # vartype: pr, desc: '[A] reference phase current'
+"/driver/prest" : "1" # vartype: pr, desc: 'preferred rotor position estimation mode'
+"/driver/ipeak" : "320.0" # vartype: pr, desc: '[A] peak phase current (negative to switch direction)'
+"/common/ioconf1" : "0" # vartype: pr, desc: '<0:floating> <1:pull-up> <2:pull-down>'
+"/common/ioconf2" : "1" # vartype: pr, desc: '<0:floating> <1:pull-up> <2:pull-down>'

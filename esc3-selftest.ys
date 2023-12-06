@@ -1,0 +1,53 @@
+# selftest ESC3 
+
+echo =======================================================
+echo
+# echo ESC3 selftest
+
+var err int32
+set err 0
+
+set /common/ioconf0 0
+set /common/ioconf1 0
+set /common/ioconf2 0
+set /common/ioconf3 0
+set /common/ioconf4 0
+
+# echo Reinit and run
+{
+  reinit 0
+  cont 0 0
+  cont 1 0
+  cont 2 0
+
+  if /driver/error==0 {
+    # echo RUN!
+    run 1
+    delay 300
+    run 0 0
+    }
+}
+@w 10:1
+
+
+if (/driver/error!=0) {
+    echo DRIVER ERROR  $/driver/error
+    set err err+1
+}
+
+
+
+if (/common/error!=0) {
+    echo Common ERROR  $/common/error
+    set err err+1
+
+}
+
+
+if (err==0) {
+  echo SELFTEST IS ok
+}
+
+
+@w 4:1
+echo  \26 $err \27 # return test value

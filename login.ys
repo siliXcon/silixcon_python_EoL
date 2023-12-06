@@ -1,0 +1,21 @@
+# Provede login do kontroleru
+
+@w 5:0
+@! admin
+@w 3:0
+set debuglevel 0
+
+echo Login succesfull!
+
+var i
+version -d
+set i retval
+if ((i==11)||(i==10)||(i==12)||(i==13)||(i==14)) {
+ cont 0 0
+ cont 1 0
+ cont 2 0
+ cont 3 0
+}
+
+stop
+echo  \26 123 \27
