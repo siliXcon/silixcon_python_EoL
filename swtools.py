@@ -140,6 +140,7 @@ class swtools_connection_options:
         addr: str = "",
         msgconf_str: str = "",
         sw_path: str = get_swtools_path(),
+        credentials: str = "",
     ) -> None:
         if interface:
             interface_valid(interface)
@@ -147,6 +148,7 @@ class swtools_connection_options:
         self.addr = addr
         self.msgconf = parse_msgconf_from_string(msgconf_str)
         self.sw_path = sw_path
+        self.credentials = credentials
 
     def set_if(self, interface: str):
         interface_valid(interface)
@@ -209,13 +211,15 @@ class swtools:
     def __str__(self):
         return f"Swtools:\n{self.conn.interface} \n{self.conn}, Option str: {self.get_options()}"
 
-    def get_options(self):
+    def get_options(self, add_login=True):
         ret = list()
         if self.conn:
             ret = self.conn.get_if()
 
         ret.append("-v" + self.swtools_verbosity)
         ret.append("-z" + self.swtools_debug_lvl)
+        if add_login and self.conn.credentials:
+            ret.append("-c" + self.conn.credentials)
         return ret
 
     def srm_upgrade(self, swid=""):
@@ -223,7 +227,7 @@ class swtools:
             [
                 "srm.cmd",
                 "-s" + globals.INTRANET_URL,
-                *self.get_options(),
+                *self.get_options(add_login=False),
                 "UPGRADE:{}".format(swid),
             ]
         )

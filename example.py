@@ -11,6 +11,7 @@ swt = swtools.swtools(
         interface="usb",
         addr=DEVICE_ADDRESS,
         msgconf_str=MSGCONF_STRING,
+        credentials="login:password",
     )
 )
 device = yos_device.yos_device(swt)
