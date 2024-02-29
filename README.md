@@ -6,7 +6,7 @@ Welcome to the silixcon_python_EoL documentation! This repository provides an EX
 
 The scripts are a small part of the scripts used in siliXcon production. The script was modified to work without other proprietary tools from siliXcon manufacturing.
 
-This means that the scripts are not used by siliXcon, because siliXcon has an internal copy. Their purpose is an example, that you can automate things using Python and SWTools. If you want to use the scripts as they are, you may need some work on them. The scripts are not maintained, but you can use them as a starting point for your own scripts.
+This means that the scripts are not used by siliXcon, because siliXcon has an internal copy. Their purpose is an example, that you can automate things using Python and SWTools. If you want to use the scripts as they are, you may need some work on them. **The scripts are not maintained, but you can use them as a starting point for your own scripts.**
 
 ## Getting Started
 
