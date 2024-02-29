@@ -209,15 +209,13 @@ class swtools:
     def __str__(self):
         return f"Swtools:\n{self.conn.interface} \n{self.conn}, Option str: {self.get_options()}"
 
-    def get_options(self, add_login=True):
+    def get_options(self):
         ret = list()
         if self.conn:
             ret = self.conn.get_if()
 
         ret.append("-v" + self.swtools_verbosity)
         ret.append("-z" + self.swtools_debug_lvl)
-        if add_login:
-            ret.append("-cadmin")
         return ret
 
     def srm_upgrade(self, swid=""):
@@ -225,7 +223,7 @@ class swtools:
             [
                 "srm.cmd",
                 "-s" + globals.INTRANET_URL,
-                *self.get_options(add_login=False),
+                *self.get_options(),
                 "UPGRADE:{}".format(swid),
             ]
         )

@@ -2,7 +2,7 @@
 # This is necesary later to run scripts
 
 @w 5:0
-@! admin
+@!
 @w 3:0
 
 echo Login succesfull!
