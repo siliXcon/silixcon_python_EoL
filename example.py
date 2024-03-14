@@ -11,7 +11,7 @@ swt = swtools.swtools(
         interface="usb",
         addr=DEVICE_ADDRESS,
         msgconf_str=MSGCONF_STRING,
-        credentials="login:password",
+        credentials="",
     )
 )
 device = yos_device.yos_device(swt)
@@ -36,14 +36,20 @@ def example():
     print("Script return code: " + str(ret))
 
 
+print("Example started")
 # Check if device is connected and do interface clain
 if device.is_NOT_on(fast=True):
     print("Device is not connected")
     sys.exit(1)
 
 # Login to device
-device.login()
-swt.conn.set_if("usb")
+print("Logging in")
+
+# swt.conn.set_if("usb") # USB interface is already set from the beginning
+if device.login():
+    print("Logging in failed")
+    sys.exit(1)
+
 
 example()
 

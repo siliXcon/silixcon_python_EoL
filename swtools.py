@@ -243,9 +243,9 @@ class swtools:
         while run_check(command, ret_val=123):
             x += 1
             print("Term login fail, trying again..")
-            if x > 4:
+            if x > 2:
                 raise SwtoolsError("Term login failed")
-            self.sleep(0.5)
+            time.sleep(0.5)
         command = ("yosctl.cmd", *self.get_options(), "var", "login")
         if run_check(command, ret_val=0):
             raise SwtoolsError("Yosctl var login login failed")
