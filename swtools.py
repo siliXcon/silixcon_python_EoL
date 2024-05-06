@@ -360,7 +360,7 @@ class swtools:
 
     def claim(self):
         # po zmene interface zavolat
-        command = ["yosctl.cmd", *self.get_options(), "if", "claim"]
+        command = ["yosctl.cmd", *self.get_options(), "id", "claim"]
         ret = run_no_output(command).returncode
         ret = ctypes.c_int32(ret).value
         return ret
