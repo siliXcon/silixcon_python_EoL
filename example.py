@@ -25,6 +25,9 @@ def example():
 
     print("Controller temperature: " + str(device.get_var("/driver/temp")))
 
+    print("Execute YOS command:")
+    print(swt.yosctl_cmd_exec(["echo", "Hello", "world!"]).stdout)
+
     print("Restore default config:")
     device.restore()
     print("Push config:")

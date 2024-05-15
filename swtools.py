@@ -397,7 +397,8 @@ class swtools:
 
     def yosctl_cmd_exec(self, cmd=[]):
         out = ["yosctl.cmd", *self.get_options(), "cmd", "exec"]
-        if cmd is type(list):
+
+        if type(cmd) is list:
             out.extend(cmd)
         else:
             out.append(str(cmd))
