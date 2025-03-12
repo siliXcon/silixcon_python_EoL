@@ -137,7 +137,7 @@ class swtools_connection_options:
     def __init__(
         self,
         interface: str = "",
-        addr: str = "",
+        addr: int = None,
         msgconf_str: str = "",
         sw_path: str = get_swtools_path(),
         credentials: str = "",
@@ -184,8 +184,8 @@ class swtools_connection_options:
             else:
                 ret.append("-o0")
 
-        if self.addr:
-            ret.append("-a" + self.addr)
+        if self.addr is not None:
+            ret.append("-a" + str(self.addr))
         ret.append("-l7")  # local 7
         # ret.append("-m0")  # mesh 0
 
