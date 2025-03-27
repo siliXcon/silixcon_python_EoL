@@ -181,8 +181,8 @@ class swtools_connection_options:
                 if self.interface == "kvaser":
                     opt = "0," + opt
                 ret.append("-o" + opt)
-            else:
-                ret.append("-o")
+            # else:
+            # ret.append("-o")
 
         if self.addr is not None:
             ret.append("-a" + str(self.addr))
