@@ -182,7 +182,7 @@ class swtools_connection_options:
                     opt = "0," + opt
                 ret.append("-o" + opt)
             else:
-                ret.append("-o0")
+                ret.append("-o")
 
         if self.addr is not None:
             ret.append("-a" + str(self.addr))
